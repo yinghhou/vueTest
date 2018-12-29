@@ -1,0 +1,579 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<p>
+    dom 使用 
+    html 对象模型
+    html dom 介于html 与js之间的中间环节
+	
+</p>
+<p>
+    #### react props 用法
+
+    ####父传子数据 子传父数据
+    父传子数据 父组件数据更新传给子组件 通过props从父组件哪里继承数据
+
+    ####大部分是父传子数据
+
+    ####dva 用法
+
+
+    ####dva 给装model方法
+
+    #### fetch 	
+    fetch是一个和axios一样的基于promise封装的一个http库
+
+    ###redux
+    1.提供connect方法
+
+    #####react 
+    react 只是dom一个抽象层
+</p>
+<p>
+	#####es6
+	1.常量 只读属性
+	2,。什么时候使用import？ 什么时候使用require（）？
+	3.export default ???
+	4###construcor???
+	-》this
+	// CommonJS模块
+	let { stat, exists, readFile } = require('fs');
+	// ES6模块
+	import { stat, exists, readFile } from 'fs';
+	export 除了输出变量，还可以输出函数或者类
+	####export规定的是对外的接口，必须
+	// 报错
+	export 1;
+	// 报错
+	var m = 1;
+	export m;
+	上面两种方法都会报错，没有提供对外的接口，直接1，第二种其实还是1.1只是一个值不是接口
+	/ 写法一
+	export var m = 1;
+
+	// 写法二
+	var m = 1;
+	export {m};
+
+	// 写法三
+	var n = 1;
+	export {n as m};
+	######function和class的输出，也必须遵守这样的写法
+	// 报错
+	function f() {}
+	export f;
+
+	// 正确
+	export function f() {};
+
+	// 正确
+	function f() {}
+	export {f};
+	export default命令
+	// export-default.js
+		export default function foo() {
+		  console.log('foo');
+		}
+
+		// 或者写成
+
+		function foo() {
+		  console.log('foo');
+		}
+
+		export default foo;
+		export default命令用于指定模块的默认输出。显然，一个模块只能有一个默认输出，因此export default命令只能使用一次。所以，import命令后面才不用加大括号，因为只可能唯一对应export default命令。
+		同时输出默认方法和其他接口
+		#####整体加载是*号
+		### export 导出之后 直接可以使用
+
+</p>
+<p>
+	###构造函数？？？？？
+	属性和方法 同一个实例 指向一样
+	###构造函数也是函数
+	####对象实例 之间 资源一样 但是不共享
+	function Person(name,age){
+	  this.name=name;
+	  this.age=age;
+	}
+    Person.prototype={
+      constructor : Person,
+      sayName:function(){
+        console.log(this.name);
+    }
+    }
+    var boy = new Person("bella",23);
+    var girl=new Person("girl",21);
+    //在原型链上绝对等于 
+    console.log(boy.sayName() === girl.sayName());
+    boy.sayName();
+
+</p>
+<p>
+	flex布局？？？？
+
+	flex-direction:
+	flex-warp:
+	flex-flow:排列方向：换行
+	justify-content：主轴上的对其方式 space-around  自动占一行，间距相等 每个项目两侧之间的距离相等
+	space-between：两端对齐，项目之间的间隔相等
+	align-items：在主轴上的对齐方式 
+	align-content：
+
+	item 上？
+	order:位置上变化
+	flex-grow：
+	默认 0 剩余空间 也不放大
+	设置其他值 将占满整个空间
+	flex-shrink：
+	缩放比例 如果为1 等比缩放
+	align-self属性
+	主轴上的对其方式
+
+
+</p>
+<p>
+	vue？？？
+
+     vue init Ln-Bates/webpack-v2 projectName
+
+	*vue安装一个最新的开发环境
+	1. 全局安装 vue-cli 环境
+	2.
+
+	双向数据绑定 v-model 
+	v-on 添加事件监听器
+	v-bind 将代办事项传到组件中
+	父元素怎么传递给子元素
+	通过v-bind 
+	在子元素通过 props:['todo']
+	父传子 ，子传父，非父之间传递
+
+
+	******vue路由是绝对匹配的 不是子元素********
+	******模块的导入也是子模块******
+	<thread-section></thread-section>
+	*****子路由显示要在父路由 <router-view></router-view>******
+
+
+	<template>
+	    <div>
+	        <p>{{name4}}</p>
+	        <ul>
+		        <li v-for="item in listInfo" :key="item.id" @click="goDetails(item.id)">
+		            {{item.name}}
+		        </li>
+	         </ul>
+	        <router-view></router-view>
+	    </div>
+	</template>
+	*****react 中redux vuex 
+	1.redux 状态管理机制
+	2.vuex 可以使用this.$store.state.changeNum 因为在全局中注册了 store
+
+
+	/**
+	 * 批量处理getter里面的东西 类似于头列表 过滤后返回想要的函数
+	 */
+
+	computed: {
+	  // 使用对象展开运算符将 getter 混入 computed 对象中
+	    ...mapGetters([
+	      'idShow',
+	      'getChangedFun',
+	      // ...
+	    ])
+	  },
+	****Action 类似于 mutation
+
+	*生命周期
+	vue实例在创建过程中经过几个生命周期
+
+    *回调函数的使用
+
+
+
+    *单页面应用与多页面应用
+
+
+
+    公共资源，刷新方式，页面间传值 三个重要区别。
+
+
+
+	*mvvm与MVc区别
+
+
+
+
+
+
+
+</p>
+<p>
+	javascript ？
+	初级到高级JavaScript知识。
+	html使用javascript
+	javascript 
+	javascript 实例
+	javascript 对象实例
+	javascript 浏览器支持实例
+
+	#####javascript 内置对象
+	1，数组 2，对象 3，字符串
+	#### date 日期（date 是日期）（day 是星期几）
+	#### math ceil（像正无穷取正）与 floor 两个取反
+	round （四舍五入）
+	#### number对象
+	#### 字符串位置
+	返回有的位置
+	字符
+	#### 正则
+	浏览器窗体
+	window 属性 方法
+	alert（）
+	####文档对象
+	html DOM节点
+	每一个元素都是节点
+	
+
+
+
+
+</p>
+<p>
+	setTimeout() 设置函数和普通函数区别？？？
+	setIimeout() 函数不用写调用 因为调用时需要返回值的 
+	#### 没有返回值会报错的 
+	#### 放入队列中即使0 也是放入普通函数后面执行。
+
+
+</p>
+<p>
+	jquery ajax
+	请求加载远程数据
+	
+	
+</p>
+<p>
+	一般的配置选项的用法
+	### 方法
+	一般方法类似于juqery方法 直接使用
+	不是function那种类型的。
+	#### 回调函数
+	回调函数写在配置项里面
+	####实参 
+	####形参
+	
+</p>
+<p> 
+	一开始导出数据,总之props是父元素传下来的 这是构造函数
+	#####使用this*****
+
+	react中render 用法 
+	card 用法
+	card 带有背景
+	####react 
+	JSX 
+	### 1.。。this.props 是外部传入的数据
+
+	### 2.。。内部传入的数据 通过this.state访问
+	当组件的状态数据改变时，组件会调用render（）方法
+	重新渲染
+
+
+
+
+	###form表单
+	getFieldDecorator 进行和数据双向绑定
+
+
+
+	@Form.create() 作用？
+	table
+
+
+	路由配置？
+	利用pro项目 	
+	####this.props.location.pathname 获取当前路由
+	"name" ?作用
+	/:id 跳转方式
+
+	####this.props
+
+
+
+	参数路由
+	###
+	
+
+	### dva 中安装的有react-router
+
+	由于 dva 将 react-router-dom 和 react-router-redux 都封装到了 dva/router 中，在使用 react-router@4.0 和 redux 里面的东西时只需引入 dva/router 这个包即可
+	###系列 React-router和React-router-dom的选择？？？
+
+	##React-router
+	React-router提供了一些router的核心api，包括Router, Route, Switch等，但是它没有提供dom操作进行跳转的api
+	##React-router-dom
+	React-router-dom提供了BrowserRouter, Route, Link等api,我们可以通过dom的事件控制路由。例如点击一个按钮进行跳转，大多数情况下我们是这种情况，所以在开发过程中，我们更多是使用React-router-dom。安装很简单npm i react-router-dom --save,安装了淘宝镜像的就用cnpm吧
+
+	###子组件 嵌套路由
+	this.props.children ???
+
+
+</p>
+<p>
+	###单页面应用？？？
+
+	#####react与服务器进行交互
+
+	#####dva中的model
+
+	提供全局fetch（）方法
+	utils/request.js 是基于fetch封装
+	###111带url的 要引入request.js 处理一些错误信息。
+	###222 这些数据要导入到model中
+	### put用于出发action
+	yield put({ type: 'todos/add', payload: 'Learn Dva' });
+	### 用于调用异步逻辑，支持 promise 
+	const result = yield call(fetch, '/todos');
+
+
+
+	 ### connect的作用是将组件和models结合在一起。将models中的
+	 state绑定到组件的props中。
+
+
+	
+	####this.props.match.params？？？？
+
+
+
+
+
+</p>
+<p>
+	
+
+	值的传递
+	#####清空的用法
+
+	******https://blog.csdn.net/boysky0015/article/details/81710963****
+
+	isSelectChange(value) { //清除所有的 this.props.form.resetFields(); //清除指定的一个 this.props.form.resetFields(`conditionDesc`,[]); //清除多个 this.props.form.resetFields(['conditionDesc','origin','originItem',[]]); }
+	清空的必须带getFieldDecorator("name",{})
+
+	#####绑定值的用法
+	this.compareData1.bind(this,k)；
+
+
+
+	#####生命周期？？？？？ 理解 Fragment
+	##### Fragment 返回是一个数组
+	export default function () {
+    return (
+	        <React.Fragment>
+	            <div>一步 01</div>
+	            <div>一步 02</div>
+	            <div>一步 03</div>
+	            <div>一步 04</div>
+	        </React.Fragment>
+	    );
+	}
+
+
+	####render 中方法不能调用
+
+</p>
+<p>
+	select 中value 会使select 默认选中的e事件
+
+	select中model 是什么作用？？？
+
+
+	下拉框的选择
+	select中 initalvalue 和option的value对应的 
+	{getFieldDecorator('laltype'，{initvalue：1})(
+                    <Select className={styles.inputEdit} onChange={this.handleChange}>
+                        <Option value={1}>百度</Option>
+                        <Option value={2}>高德</Option>
+                        <Option value={3}>四维</Option>
+                    </Select>
+                )}
+</p>
+<p>
+	git commit 之后想要撤回？？？
+	git reset --soft HEAD^
+
+</p>
+<p>
+	react 使用过程中遇到的问题
+	路由的配置
+	link="to" 必须是完整路径。
+	push 也可以写完全路径 
+
+	### 也会根据上次路径进行选择，相对路径 根据上次最后的选择
+	**** 属性也可以使用相对路径（不以/开头），匹配时就会相对于父组件的路径，可以参考上一节的例子。
+	嵌套路由如果想摆脱这个规则，可以使用绝对路由。
+
+                ******以/开头的 是绝对路径 否则会按照父组件进行选择*****
+
+	this.props.history.push("file/complete")；
+
+	####动态路由使用 一般是数字直接或许就行
+
+	*table 使用
+	column 中 title:是标题名称
+	dataIndex是和datasource中数据关联的。
+
+	*生命周期
+	生命周期函数
+
+
+
+
+
+	*路由绝对等于 怎么判断？
+	
+
+	*控制元素的显示问题
+
+	*全局变量应用？？？？
+
+	*this.props.children
+	
+
+
+
+
+
+
+	*children 为四个div
+	class RootContent extends React.PureComponent{
+		  constructor(props){
+		      super(props);
+		  }
+		  render(){
+		      return (
+		          <div style={{color:"red"}}>
+		              {this.props.children}
+		          </div>
+		      );
+		  }
+		}
+
+
+	export default class CollectionPage extends PureComponent {
+	  constructor(props) {
+	    super(props);
+	    this.state = {};
+	  }
+
+	  render() {
+	    const { location, children } = this.props;
+	    return (
+	      <PageHeaderWrapper tabActiveKey={location.pathname}>
+	         <RootContent>
+	             <p>Hello, React</p>
+	             <p>Hello, Redux</p>
+	             <p>Hello, Facebook</p>
+	             <p>Hello, Google</p>
+	           </RootContent>
+	      </PageHeaderWrapper>
+	    );
+	  }
+	}
+	
+	*form表单的独立性？？？？
+
+
+
+
+	*为什么有的数据没有及时更新？？？
+
+
+
+	*怎么设置初始数据
+
+
+
+
+	*key 相同会报错
+
+   
+
+    *能在这里面直接写 函数吗 对比vue
+
+
+
+
+    *断点的使用
+
+
+
+
+    *column布局的使用‘
+
+
+
+    *滚动条使用
+    overflow的使用
+    1.滚动条设置宽和高 一般宽度不会溢出的，只有高度溢出
+	2.设置内盒子宽度大于父元素宽度 父元素会出现左右滑动快
+	3.图片不换行显示类似于文字，设置父元素的宽度。
+	4.ul li 设置左右滑动快的时候，必须首先要让内容放下。
+	然后设置一个孔显示。
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+</p>
+<p>
+	兼容性问题？
+	1.不同浏览器 margin padding 不同 为了保证统一 清除默认样式
+	2.img有时侯 会出现边距 设置float属性
+	3.IE9一下浏览器不能使用opacity 增加一个属性。
+	4.跳转问题 
+	
+</p>
+<p>
+	css 语义化标签
+</p>
+<script>
+	var n=3;
+	test(n)
+	function test(b){
+		if(b=== 3){
+			continve();
+		}
+	}
+	function continve(){
+		var b=4;
+		var c=5;
+		console.log(b+c)
+	}
+</script>
+</body>
+</html>
